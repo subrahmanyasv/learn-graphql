@@ -36,3 +36,11 @@ def get_todos_by_user_id(user_id: str) -> list[Todo]:
     # This is a placeholder implementation. In a real application, you would fetch data from a database.
     todos = get_todos()
     return [todo for todo in todos if todo.user_id == user_id]
+
+def get_todo_by_id(todo_id: str) -> Todo:
+    # This is a placeholder implementation. In a real application, you would fetch data from a database.
+    todos = get_todos()
+    for todo in todos:
+        if todo.id == todo_id:
+            return todo
+    return None
