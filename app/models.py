@@ -26,3 +26,14 @@ class Todo:
         return get_user_by_id(self.user_id)
         
 
+@strawberry.input
+class CreateTodoInput:
+    title: str = strawberry.field(description="The title of the todo item")
+    user_id: strawberry.ID = strawberry.field(description="The ID of the user who owns the todo item")
+
+
+@strawberry.input
+class UpdateTodoInput:
+    id: strawberry.ID = strawberry.field(description="The ID of the todo item to update")
+    title: typing.Optional[str] = strawberry.field(description="The new title of the todo item", default=None)
+    completed: typing.Optional[bool] = strawberry.field(description="The new completion status of the todo item", default=None)
